@@ -1,0 +1,11 @@
+server:
+  port: 8080
+
+spring:
+  mail:
+    host: smtp.qq.com
+    username: 976352324@qq.com
+    password: ucpacypybtbybfdc
+    properties.mail.smtp.auth: true
+    properties.mail.smtp.starttls.enable: true
+    default-encoding: utf-8

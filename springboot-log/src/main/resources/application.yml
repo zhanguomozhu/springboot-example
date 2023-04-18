@@ -1,0 +1,18 @@
+
+#logging:
+#  level:
+#    root: info
+#    com.dyq.springboot.log.controller: debug
+#  file:
+#    path: D:\WorkSpace\java\github\logs
+#    name: D:\WorkSpace\java\github\logs\springboot-log.log
+#    max-size: 10MB
+#    max-history: 10
+#  pattern:
+#    console: '%red(%d{yyyy-MM-dd HH:mm:ss}) %green([%thread]) %highlight(%-5level) %boldMagenta(%logger{10}) - %cyan(%msg%n)'
+#    file: '%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level [%thread] %logger : %msg%n'
+
+
+#指定配置文件
+#logging:
+#  config: classpath:log4j2-dev.xml

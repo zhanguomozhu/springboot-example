@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dyq.springboot.activiti.dao.DemandDao">
+
+    <resultMap type="com.dyq.springboot.activiti.entity.Demand" id="DemandMap">
+        <result property="id" column="id" jdbcType="VARCHAR"/>
+        <result property="status" column="status" jdbcType="VARCHAR"/>
+        <result property="name" column="name" jdbcType="VARCHAR"/>
+        <result property="content" column="content" jdbcType="VARCHAR"/>
+        <result property="salt" column="salt" jdbcType="VARCHAR"/>
+        <result property="taskid" column="taskid" jdbcType="VARCHAR"/>
+        <result property="createuser" column="createuser" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <!-- 批量插入 -->
+    <insert id="insertBatch" keyProperty="id" useGeneratedKeys="true">
+        insert into activiti.demand(status, name, content, salt, taskid, createuser)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+            (#{entity.status}, #{entity.name}, #{entity.content}, #{entity.salt}, #{entity.taskid},
+            #{entity.createuser})
+        </foreach>
+    </insert>
+    <!-- 批量插入或按主键更新 -->
+    <insert id="insertOrUpdateBatch" keyProperty="id" useGeneratedKeys="true">
+        insert into activiti.demand(status, name, content, salt, taskid, createuser)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+            (#{entity.status}, #{entity.name}, #{entity.content}, #{entity.salt}, #{entity.taskid},
+            #{entity.createuser})
+        </foreach>
+        on duplicate key update
+        status = values(status) , name = values(name) , content = values(content) , salt = values(salt) , taskid =
+        values(taskid) , createuser = values(createuser)
+    </insert>
+    <!-- 获取组长列表 -->
+    <select id="getKaiFaZuZhangList" resultType="com.dyq.springboot.activiti.entity.User">
+        SELECT * FROM user u left join user_role ur on ur.userid = u.id LEFT JOIN role r on r.id = ur.roleid where role = "开发组长"
+    </select>
+
+    <!-- 获取开发经理 -->
+    <select id="getKaiFaJingLiList" resultType="com.dyq.springboot.activiti.entity.User">
+        SELECT * FROM user u left join user_role ur on ur.userid = u.id LEFT JOIN role r on r.id = ur.roleid where role = "开发经理"
+    </select>
+
+    <!-- 获取项目经理 -->
+    <select id="getProjectJingLiList" resultType="com.dyq.springboot.activiti.entity.User">
+        SELECT * FROM user u left join user_role ur on ur.userid = u.id LEFT JOIN role r on r.id = ur.roleid where role = "项目经理"
+    </select>
+
+    <delete id="deletevarinst" >
+        delete  FROM act_hi_varinst  where PROC_INST_ID_ = #{id}
+    </delete>
+</mapper>
+

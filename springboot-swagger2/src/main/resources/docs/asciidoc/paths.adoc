@@ -1,0 +1,288 @@
+
+[[_paths]]
+== Paths
+
+[[_addusingpost]]
+=== add
+....
+POST /person
+....
+
+
+==== Parameters
+
+[options="header", cols=".^2,.^3,.^4"]
+|===
+|Type|Name|Schema
+|**Query**|**id** +
+__optional__|integer (int32)
+|**Query**|**name** +
+__optional__|string
+|**Query**|**sex** +
+__optional__|integer (int32)
+|===
+
+
+==== Responses
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|<<_person,Person>>
+|**201**|Created|No Content
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+==== Consumes
+
+* `application/json`
+
+
+==== Produces
+
+* `*/*`
+
+
+==== Tags
+
+* PersonController
+
+
+[[_querybypageusingget]]
+=== queryByPage
+....
+GET /person
+....
+
+
+==== Parameters
+
+[options="header", cols=".^2,.^3,.^4"]
+|===
+|Type|Name|Schema
+|**Query**|**id** +
+__optional__|integer (int32)
+|**Query**|**name** +
+__optional__|string
+|**Query**|**offset** +
+__optional__|integer (int64)
+|**Query**|**pageNumber** +
+__optional__|integer (int32)
+|**Query**|**pageSize** +
+__optional__|integer (int32)
+|**Query**|**sex** +
+__optional__|integer (int32)
+|**Query**|**sort.sorted** +
+__optional__|boolean
+|**Query**|**sort.unsorted** +
+__optional__|boolean
+|===
+
+
+==== Responses
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|<<_3e9c3ac243786993f3e3ed06fc509e08,Page«Person»>>
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+==== Produces
+
+* `*/*`
+
+
+==== Tags
+
+* PersonController
+
+
+[[_editusingput]]
+=== edit
+....
+PUT /person
+....
+
+
+==== Parameters
+
+[options="header", cols=".^2,.^3,.^4"]
+|===
+|Type|Name|Schema
+|**Query**|**id** +
+__optional__|integer (int32)
+|**Query**|**name** +
+__optional__|string
+|**Query**|**sex** +
+__optional__|integer (int32)
+|===
+
+
+==== Responses
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|<<_person,Person>>
+|**201**|Created|No Content
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+==== Consumes
+
+* `application/json`
+
+
+==== Produces
+
+* `*/*`
+
+
+==== Tags
+
+* PersonController
+
+
+[[_deletebyidusingdelete]]
+=== deleteById
+....
+DELETE /person
+....
+
+
+==== Parameters
+
+[options="header", cols=".^2,.^3,.^9,.^4"]
+|===
+|Type|Name|Description|Schema
+|**Query**|**id** +
+__optional__|id|integer (int32)
+|===
+
+
+==== Responses
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|boolean
+|**204**|No Content|No Content
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|===
+
+
+==== Produces
+
+* `*/*`
+
+
+==== Tags
+
+* PersonController
+
+
+[[_savearticleusingpost]]
+=== 添加文章
+....
+POST /person/article
+....
+
+
+==== Description
+添加新的文章
+
+
+==== Parameters
+
+[options="header", cols=".^2,.^3,.^9,.^4"]
+|===
+|Type|Name|Description|Schema
+|**Query**|**author** +
+__required__|文章作者|string
+|**Query**|**content** +
+__required__|文章内容|string
+|**Query**|**title** +
+__required__|文章标题|string
+|===
+
+
+==== Responses
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP Code|Description|Schema
+|**200**|成功|<<_responseentity,ResponseEntity>>
+|**201**|Created|No Content
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+==== Consumes
+
+* `application/json`
+
+
+==== Produces
+
+* `*/*`
+
+
+==== Tags
+
+* Article
+* PersonController
+
+
+[[_querybyidusingget]]
+=== queryById
+....
+GET /person/{id}
+....
+
+
+==== Parameters
+
+[options="header", cols=".^2,.^3,.^9,.^4"]
+|===
+|Type|Name|Description|Schema
+|**Path**|**id** +
+__required__|id|integer (int32)
+|===
+
+
+==== Responses
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|<<_person,Person>>
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+==== Produces
+
+* `*/*`
+
+
+==== Tags
+
+* PersonController
+
+
+

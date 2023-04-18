@@ -1,0 +1,8 @@
+spring:
+  freemarker:
+    cache: false # 缓存配置 开发阶段应该配置为false 因为经常会改
+    suffix: .ftl # 模版文件后缀名
+    charset: UTF-8 # 文件编码
+    template-loader-path: classpath:/templates/
+
+

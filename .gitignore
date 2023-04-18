@@ -1,0 +1,7 @@
+/.idea
+/*/mvnw
+/*/mvnw.cmd
+/*/.mvn/
+/*/.gitignore
+/*.lck
+/*.log

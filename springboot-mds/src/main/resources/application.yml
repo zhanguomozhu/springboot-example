@@ -1,0 +1,42 @@
+## 多数据源配置
+#master:
+#  datasource:
+#    type: com.alibaba.druid.pool.DruidDataSource
+#    url: jdbc:mysql://localhost:3306/db1?useUnicode=true&useSSL=false&characterEncoding=utf8
+#    driver-class-name: com.mysql.jdbc.Driver
+#    username: root
+#    password: root
+#
+#slave:
+#  datasource:
+#    type: com.alibaba.druid.pool.DruidDataSource
+#    url: jdbc:mysql://localhost:3306/db2?useUnicode=true&useSSL=false&characterEncoding=utf8
+#    driver-class-name: com.mysql.jdbc.Driver
+#    username: root
+#    password: root
+
+
+#多数据源分布式事务
+primarydb:
+  uniqueResourceName: primary
+  xaDataSourceClassName: com.mysql.jdbc.jdbc2.optional.MysqlXADataSource
+  xaProperties:
+    url: jdbc:mysql://localhost:3306/db1?useUnicode=true&characterEncoding=utf-8&useSSL=false
+    user: root
+    password: root
+  exclusiveConnectionMode: true
+  minPoolSize: 3
+  maxPoolSize: 10
+  testQuery: SELECT 1 from dual #由于采用HikiriCP，用于检测数据库连接是否存活。
+
+secondarydb:
+  uniqueResourceName: secondary
+  xaDataSourceClassName: com.mysql.jdbc.jdbc2.optional.MysqlXADataSource
+  xaProperties:
+    url: jdbc:mysql://localhost:3306/db2?useUnicode=true&characterEncoding=utf-8&useSSL=false
+    user: root
+    password: root
+  exclusiveConnectionMode: true
+  minPoolSize: 3
+  maxPoolSize: 10
+  testQuery: SELECT 1 from dual #由于采用HikiriCP，用于检测数据库连接是否存活。

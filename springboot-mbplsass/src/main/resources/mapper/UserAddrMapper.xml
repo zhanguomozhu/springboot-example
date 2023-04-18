@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dyq.springboot.mbplsass.dao.UserAddrMapper">
+
+    <resultMap type="com.dyq.springboot.mbplsass.entity.UserAddr" id="UserAddrMap">
+        <result property="id" column="id" jdbcType="INTEGER"/>
+        <result property="userId" column="user_id" jdbcType="INTEGER"/>
+        <result property="name" column="name" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <!-- 批量插入 -->
+    <!-- 
+    <insert id="insertBatch" keyProperty="id" useGeneratedKeys="true">
+        insert into db2.user_addr(user_id, name)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+        (#{entity.userId}, #{entity.name})
+        </foreach>
+    </insert>
+    -->
+
+</mapper>
+
+

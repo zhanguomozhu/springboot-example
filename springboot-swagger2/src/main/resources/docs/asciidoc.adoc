@@ -1,0 +1,545 @@
+= springboot利用swagger构建api文档
+
+
+[[_overview]]
+== 概览
+简单优雅的restfun风格
+
+
+=== 版本信息
+[%hardbreaks]
+__版本__ : 1.0
+
+
+=== 许可信息
+[%hardbreaks]
+__服务条款__ : http://www.baidu.com
+
+
+=== URI scheme
+[%hardbreaks]
+__域名__ : localhost:8080
+__基础路径__ : /
+
+
+=== 标签
+
+* PersonController : 人员控制
+
+
+
+
+[[_paths]]
+== 资源
+
+[[_personcontroller_resource]]
+=== PersonController
+人员控制
+
+
+[[_addusingpost]]
+==== add
+....
+POST /person
+....
+
+
+===== 参数
+
+[options="header", cols=".^2a,.^3a,.^4a"]
+|===
+|类型|名称|类型
+|**Query**|**id** +
+__可选__|integer (int32)
+|**Query**|**name** +
+__可选__|string
+|**Query**|**sex** +
+__可选__|integer (int32)
+|===
+
+
+===== 响应
+
+[options="header", cols=".^2a,.^14a,.^4a"]
+|===
+|HTTP代码|说明|类型
+|**200**|OK|<<_person,Person>>
+|**201**|Created|无内容
+|**401**|Unauthorized|无内容
+|**403**|Forbidden|无内容
+|**404**|Not Found|无内容
+|===
+
+
+===== 消耗
+
+* `application/json`
+
+
+===== 生成
+
+* `\*/*`
+
+
+===== HTTP请求示例
+
+====== 请求 path
+----
+/person
+----
+
+
+===== HTTP响应示例
+
+====== 响应 200
+[source,json]
+----
+{
+  "id" : 0,
+  "name" : "string",
+  "sex" : 0
+}
+----
+
+
+[[_querybypageusingget]]
+==== queryByPage
+....
+GET /person
+....
+
+
+===== 参数
+
+[options="header", cols=".^2a,.^3a,.^4a"]
+|===
+|类型|名称|类型
+|**Query**|**id** +
+__可选__|integer (int32)
+|**Query**|**name** +
+__可选__|string
+|**Query**|**offset** +
+__可选__|integer (int64)
+|**Query**|**pageNumber** +
+__可选__|integer (int32)
+|**Query**|**pageSize** +
+__可选__|integer (int32)
+|**Query**|**sex** +
+__可选__|integer (int32)
+|**Query**|**sort.sorted** +
+__可选__|boolean
+|**Query**|**sort.unsorted** +
+__可选__|boolean
+|===
+
+
+===== 响应
+
+[options="header", cols=".^2a,.^14a,.^4a"]
+|===
+|HTTP代码|说明|类型
+|**200**|OK|<<_3e9c3ac243786993f3e3ed06fc509e08,Page«Person»>>
+|**401**|Unauthorized|无内容
+|**403**|Forbidden|无内容
+|**404**|Not Found|无内容
+|===
+
+
+===== 生成
+
+* `\*/*`
+
+
+===== HTTP请求示例
+
+====== 请求 path
+----
+/person
+----
+
+
+===== HTTP响应示例
+
+====== 响应 200
+[source,json]
+----
+{
+  "content" : [ {
+    "id" : 0,
+    "name" : "string",
+    "sex" : 0
+  } ],
+  "empty" : true,
+  "first" : true,
+  "last" : true,
+  "number" : 0,
+  "numberOfElements" : 0,
+  "pageable" : {
+    "offset" : 0,
+    "pageNumber" : 0,
+    "pageSize" : 0,
+    "paged" : true,
+    "sort" : {
+      "empty" : true,
+      "sorted" : true,
+      "unsorted" : true
+    },
+    "unpaged" : true
+  },
+  "size" : 0,
+  "sort" : {
+    "empty" : true,
+    "sorted" : true,
+    "unsorted" : true
+  },
+  "totalElements" : 0,
+  "totalPages" : 0
+}
+----
+
+
+[[_editusingput]]
+==== edit
+....
+PUT /person
+....
+
+
+===== 参数
+
+[options="header", cols=".^2a,.^3a,.^4a"]
+|===
+|类型|名称|类型
+|**Query**|**id** +
+__可选__|integer (int32)
+|**Query**|**name** +
+__可选__|string
+|**Query**|**sex** +
+__可选__|integer (int32)
+|===
+
+
+===== 响应
+
+[options="header", cols=".^2a,.^14a,.^4a"]
+|===
+|HTTP代码|说明|类型
+|**200**|OK|<<_person,Person>>
+|**201**|Created|无内容
+|**401**|Unauthorized|无内容
+|**403**|Forbidden|无内容
+|**404**|Not Found|无内容
+|===
+
+
+===== 消耗
+
+* `application/json`
+
+
+===== 生成
+
+* `\*/*`
+
+
+===== HTTP请求示例
+
+====== 请求 path
+----
+/person
+----
+
+
+===== HTTP响应示例
+
+====== 响应 200
+[source,json]
+----
+{
+  "id" : 0,
+  "name" : "string",
+  "sex" : 0
+}
+----
+
+
+[[_deletebyidusingdelete]]
+==== deleteById
+....
+DELETE /person
+....
+
+
+===== 参数
+
+[options="header", cols=".^2a,.^3a,.^9a,.^4a"]
+|===
+|类型|名称|说明|类型
+|**Query**|**id** +
+__可选__|id|integer (int32)
+|===
+
+
+===== 响应
+
+[options="header", cols=".^2a,.^14a,.^4a"]
+|===
+|HTTP代码|说明|类型
+|**200**|OK|boolean
+|**204**|No Content|无内容
+|**401**|Unauthorized|无内容
+|**403**|Forbidden|无内容
+|===
+
+
+===== 生成
+
+* `\*/*`
+
+
+===== HTTP请求示例
+
+====== 请求 path
+----
+/person
+----
+
+
+===== HTTP响应示例
+
+====== 响应 200
+[source,json]
+----
+true
+----
+
+
+[[_savearticleusingpost]]
+==== 添加文章
+....
+POST /person/article
+....
+
+
+===== 说明
+添加新的文章
+
+
+===== 参数
+
+[options="header", cols=".^2a,.^3a,.^9a,.^4a"]
+|===
+|类型|名称|说明|类型
+|**Query**|**author** +
+__必填__|文章作者|string
+|**Query**|**content** +
+__必填__|文章内容|string
+|**Query**|**title** +
+__必填__|文章标题|string
+|===
+
+
+===== 响应
+
+[options="header", cols=".^2a,.^14a,.^4a"]
+|===
+|HTTP代码|说明|类型
+|**200**|成功|<<_responseentity,ResponseEntity>>
+|**201**|Created|无内容
+|**401**|Unauthorized|无内容
+|**403**|Forbidden|无内容
+|**404**|Not Found|无内容
+|===
+
+
+===== 消耗
+
+* `application/json`
+
+
+===== 生成
+
+* `\*/*`
+
+
+===== HTTP请求示例
+
+====== 请求 path
+----
+/person/article?author=string&content=string&title=string
+----
+
+
+===== HTTP响应示例
+
+====== 响应 200
+[source,json]
+----
+{
+  "body" : "object",
+  "statusCode" : "string",
+  "statusCodeValue" : 0
+}
+----
+
+
+[[_querybyidusingget]]
+==== queryById
+....
+GET /person/{id}
+....
+
+
+===== 参数
+
+[options="header", cols=".^2a,.^3a,.^9a,.^4a"]
+|===
+|类型|名称|说明|类型
+|**Path**|**id** +
+__必填__|id|integer (int32)
+|===
+
+
+===== 响应
+
+[options="header", cols=".^2a,.^14a,.^4a"]
+|===
+|HTTP代码|说明|类型
+|**200**|OK|<<_person,Person>>
+|**401**|Unauthorized|无内容
+|**403**|Forbidden|无内容
+|**404**|Not Found|无内容
+|===
+
+
+===== 生成
+
+* `\*/*`
+
+
+===== HTTP请求示例
+
+====== 请求 path
+----
+/person/0
+----
+
+
+===== HTTP响应示例
+
+====== 响应 200
+[source,json]
+----
+{
+  "id" : 0,
+  "name" : "string",
+  "sex" : 0
+}
+----
+
+
+
+
+[[_definitions]]
+== 定义
+
+[[_pageable]]
+=== Pageable
+
+[options="header", cols=".^3a,.^11a,.^4a"]
+|===
+|名称|说明|类型
+|**offset** +
+__可选__|**样例** : `0`|integer (int64)
+|**pageNumber** +
+__可选__|**样例** : `0`|integer (int32)
+|**pageSize** +
+__可选__|**样例** : `0`|integer (int32)
+|**paged** +
+__可选__|**样例** : `true`|boolean
+|**sort** +
+__可选__|**样例** : <<_sort>>|<<_sort,Sort>>
+|**unpaged** +
+__可选__|**样例** : `true`|boolean
+|===
+
+
+[[_3e9c3ac243786993f3e3ed06fc509e08]]
+=== Page«Person»
+
+[options="header", cols=".^3a,.^11a,.^4a"]
+|===
+|名称|说明|类型
+|**content** +
+__可选__|**样例** : `[ "<<_person>>" ]`|< <<_person,Person>> > array
+|**empty** +
+__可选__|**样例** : `true`|boolean
+|**first** +
+__可选__|**样例** : `true`|boolean
+|**last** +
+__可选__|**样例** : `true`|boolean
+|**number** +
+__可选__|**样例** : `0`|integer (int32)
+|**numberOfElements** +
+__可选__|**样例** : `0`|integer (int32)
+|**pageable** +
+__可选__|**样例** : <<_pageable>>|<<_pageable,Pageable>>
+|**size** +
+__可选__|**样例** : `0`|integer (int32)
+|**sort** +
+__可选__|**样例** : <<_sort>>|<<_sort,Sort>>
+|**totalElements** +
+__可选__|**样例** : `0`|integer (int64)
+|**totalPages** +
+__可选__|**样例** : `0`|integer (int32)
+|===
+
+
+[[_person]]
+=== Person
+
+[options="header", cols=".^3a,.^11a,.^4a"]
+|===
+|名称|说明|类型
+|**id** +
+__可选__|**样例** : `0`|integer (int32)
+|**name** +
+__可选__|**样例** : `"string"`|string
+|**sex** +
+__可选__|**样例** : `0`|integer (int32)
+|===
+
+
+[[_responseentity]]
+=== ResponseEntity
+
+[options="header", cols=".^3a,.^11a,.^4a"]
+|===
+|名称|说明|类型
+|**body** +
+__可选__|**样例** : `"object"`|object
+|**statusCode** +
+__可选__|**样例** : `"string"`|enum (100 CONTINUE, 101 SWITCHING_PROTOCOLS, 102 PROCESSING, 103 CHECKPOINT, 200 OK, 201 CREATED, 202 ACCEPTED, 203 NON_AUTHORITATIVE_INFORMATION, 204 NO_CONTENT, 205 RESET_CONTENT, 206 PARTIAL_CONTENT, 207 MULTI_STATUS, 208 ALREADY_REPORTED, 226 IM_USED, 300 MULTIPLE_CHOICES, 301 MOVED_PERMANENTLY, 302 FOUND, 302 MOVED_TEMPORARILY, 303 SEE_OTHER, 304 NOT_MODIFIED, 305 USE_PROXY, 307 TEMPORARY_REDIRECT, 308 PERMANENT_REDIRECT, 400 BAD_REQUEST, 401 UNAUTHORIZED, 402 PAYMENT_REQUIRED, 403 FORBIDDEN, 404 NOT_FOUND, 405 METHOD_NOT_ALLOWED, 406 NOT_ACCEPTABLE, 407 PROXY_AUTHENTICATION_REQUIRED, 408 REQUEST_TIMEOUT, 409 CONFLICT, 410 GONE, 411 LENGTH_REQUIRED, 412 PRECONDITION_FAILED, 413 PAYLOAD_TOO_LARGE, 413 REQUEST_ENTITY_TOO_LARGE, 414 URI_TOO_LONG, 414 REQUEST_URI_TOO_LONG, 415 UNSUPPORTED_MEDIA_TYPE, 416 REQUESTED_RANGE_NOT_SATISFIABLE, 417 EXPECTATION_FAILED, 418 I_AM_A_TEAPOT, 419 INSUFFICIENT_SPACE_ON_RESOURCE, 420 METHOD_FAILURE, 421 DESTINATION_LOCKED, 422 UNPROCESSABLE_ENTITY, 423 LOCKED, 424 FAILED_DEPENDENCY, 425 TOO_EARLY, 426 UPGRADE_REQUIRED, 428 PRECONDITION_REQUIRED, 429 TOO_MANY_REQUESTS, 431 REQUEST_HEADER_FIELDS_TOO_LARGE, 451 UNAVAILABLE_FOR_LEGAL_REASONS, 500 INTERNAL_SERVER_ERROR, 501 NOT_IMPLEMENTED, 502 BAD_GATEWAY, 503 SERVICE_UNAVAILABLE, 504 GATEWAY_TIMEOUT, 505 HTTP_VERSION_NOT_SUPPORTED, 506 VARIANT_ALSO_NEGOTIATES, 507 INSUFFICIENT_STORAGE, 508 LOOP_DETECTED, 509 BANDWIDTH_LIMIT_EXCEEDED, 510 NOT_EXTENDED, 511 NETWORK_AUTHENTICATION_REQUIRED)
+|**statusCodeValue** +
+__可选__|**样例** : `0`|integer (int32)
+|===
+
+
+[[_sort]]
+=== Sort
+
+[options="header", cols=".^3a,.^11a,.^4a"]
+|===
+|名称|说明|类型
+|**empty** +
+__可选__|**样例** : `true`|boolean
+|**sorted** +
+__可选__|**样例** : `true`|boolean
+|**unsorted** +
+__可选__|**样例** : `true`|boolean
+|===
+
+
+
+
+

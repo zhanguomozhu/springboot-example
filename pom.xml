@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.dyq.springboot</groupId>
+    <artifactId>example</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>example</name>
+    <packaging>pom</packaging>
+    <description>Demo project for Spring Boot</description>
+    <properties>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
+    </properties>
+
+    <modules>
+        <!--表单验证-->
+        <module>springboot-validation</module>
+        <!--mybatis-->
+        <module>springboot-mybatis</module>
+        <!--多数据源-->
+        <module>springboot-mds</module>
+        <!--redis-->
+        <module>springboot-redis</module>
+        <!--redis哨兵集群版-->
+        <module>springboot-sentinel</module>
+        <!--dubbo-server-->
+        <module>springboot-dubbo-server</module>
+        <!--dubbo-api-->
+        <module>springboot-dubbo-api</module>
+        <!--dubbo-client-->
+        <module>springboot-dubbo-client</module>
+        <!--elasticsearch-->
+        <module>springboot-elasticsearch</module>
+        <!--security jwt-->
+        <module>springboot-security</module>
+        <!--oss-->
+        <module>springboot-oss</module>
+        <!--rebitmq生产者-->
+        <module>springboot-mq-provider</module>
+        <!--rebitmq消费者-->
+        <module>springboot-mq-consumer</module>
+        <!--java邮件-->
+        <module>springboot-email</module>
+        <!--Excel-->
+        <module>springboot-excel</module>
+        <!--quart-->
+        <module>springboot-quart</module>
+        <!--mybatis-sass-->
+        <module>springboot-mbsass</module>
+        <!--mybatis-plus-->
+        <module>springboot-mbpl</module>
+        <!--mybatis-plus-sass-->
+        <module>springboot-mbplsass</module>
+        <!--mockito模拟测试-->
+        <module>springboot-mockito</module>
+        <!--自定义springboot-starter-->
+        <module>springboot-starter</module>
+        <!--swagger2-->
+        <module>springboot-swagger2</module>
+        <!--jdbc-->
+        <module>springboot-jdbc</module>
+        <!--jpa-->
+        <module>springboot-jpa</module>
+        <!--全局异常-->
+        <module>springboot-exception</module>
+        <!--全局日志-->
+        <module>springboot-log</module>
+        <!--异步任务与定时任务-->
+        <module>springboot-async</module>
+        <!--fastdfs-starter-->
+        <module>springboot-fastdfs-starter</module>
+        <!--activiti工作流-->
+        <module>springboot-activiti</module>
+        <!--activeMq-->
+        <module>springboot-activemq</module>
+        <!--rocketMq-->
+        <module>springboot-rocketMq</module>
+        <!--cors跨域-->
+        <module>springboot-cors</module>
+        <!--restemplate-->
+        <module>springboot-restemplate</module>
+    </modules>
+
+</project>

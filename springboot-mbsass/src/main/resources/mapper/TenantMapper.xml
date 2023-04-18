@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dyq.springboot.mbsass.dao.TenantDao">
+
+    <resultMap type="com.dyq.springboot.mbsass.entity.Tenant" id="TenantMap">
+        <result property="id" column="id" jdbcType="INTEGER"/>
+        <result property="tenantName" column="tenant_name" jdbcType="VARCHAR"/>
+        <result property="type" column="type" jdbcType="VARCHAR"/>
+        <result property="driverClassName" column="driver_class_name" jdbcType="VARCHAR"/>
+        <result property="jdbcUrl" column="jdbc_url" jdbcType="VARCHAR"/>
+        <result property="username" column="username" jdbcType="VARCHAR"/>
+        <result property="password" column="password" jdbcType="VARCHAR"/>
+        <result property="dataBase" column="data_base" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <!--查询单个-->
+    <select id="queryById" resultMap="TenantMap">
+        select
+          id, tenant_name, type, driver_class_name, jdbc_url, username, password, data_base
+        from tenant
+        where id = #{id}
+    </select>
+
+    <!--查询指定行数据-->
+    <select id="queryAllByLimit" resultMap="TenantMap">
+        select
+        id, tenant_name, type, driver_class_name, jdbc_url, username, password, data_base
+        from tenant
+        <where>
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="tenantName != null and tenantName != ''">
+                and tenant_name = #{tenantName}
+            </if>
+            <if test="type != null and type != ''">
+                and type = #{type}
+            </if>
+            <if test="driverClassName != null and driverClassName != ''">
+                and driver_class_name = #{driverClassName}
+            </if>
+            <if test="jdbcUrl != null and jdbcUrl != ''">
+                and jdbc_url = #{jdbcUrl}
+            </if>
+            <if test="username != null and username != ''">
+                and username = #{username}
+            </if>
+            <if test="password != null and password != ''">
+                and password = #{password}
+            </if>
+            <if test="dataBase != null and dataBase != ''">
+                and data_base = #{dataBase}
+            </if>
+        </where>
+        limit #{pageable.offset}, #{pageable.pageSize}
+    </select>
+
+    <!--统计总行数-->
+    <select id="count" resultType="java.lang.Long">
+        select count(1)
+        from tenant
+        <where>
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="tenantName != null and tenantName != ''">
+                and tenant_name = #{tenantName}
+            </if>
+            <if test="type != null and type != ''">
+                and type = #{type}
+            </if>
+            <if test="driverClassName != null and driverClassName != ''">
+                and driver_class_name = #{driverClassName}
+            </if>
+            <if test="jdbcUrl != null and jdbcUrl != ''">
+                and jdbc_url = #{jdbcUrl}
+            </if>
+            <if test="username != null and username != ''">
+                and username = #{username}
+            </if>
+            <if test="password != null and password != ''">
+                and password = #{password}
+            </if>
+            <if test="dataBase != null and dataBase != ''">
+                and data_base = #{dataBase}
+            </if>
+        </where>
+    </select>
+
+    <!--新增所有列-->
+    <insert id="insert" keyProperty="id" useGeneratedKeys="true">
+        insert into tenant(tenant_name, type, driver_class_name, jdbc_url, username, password, data_base)
+        values (#{tenantName}, #{type}, #{driverClassName}, #{jdbcUrl}, #{username}, #{password}, #{dataBase})
+    </insert>
+
+    <insert id="insertBatch" keyProperty="id" useGeneratedKeys="true">
+        insert into tenant(tenant_name, type, driver_class_name, jdbc_url, username, password, data_base)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+            (#{entity.tenantName}, #{entity.type}, #{entity.driverClassName}, #{entity.jdbcUrl}, #{entity.username},
+            #{entity.password}, #{entity.dataBase})
+        </foreach>
+    </insert>
+
+    <insert id="insertOrUpdateBatch" keyProperty="id" useGeneratedKeys="true">
+        insert into tenant(tenant_name, type, driver_class_name, jdbc_url, username, password, data_base)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+            (#{entity.tenantName}, #{entity.type}, #{entity.driverClassName}, #{entity.jdbcUrl}, #{entity.username},
+            #{entity.password}, #{entity.dataBase})
+        </foreach>
+        on duplicate key update
+        tenant_name = values(tenant_name),
+        type = values(type),
+        driver_class_name = values(driver_class_name),
+        jdbc_url = values(jdbc_url),
+        username = values(username),
+        password = values(password),
+        data_base = values(data_base)
+    </insert>
+
+    <!--通过主键修改数据-->
+    <update id="update">
+        update tenant
+        <set>
+            <if test="tenantName != null and tenantName != ''">
+                tenant_name = #{tenantName},
+            </if>
+            <if test="type != null and type != ''">
+                type = #{type},
+            </if>
+            <if test="driverClassName != null and driverClassName != ''">
+                driver_class_name = #{driverClassName},
+            </if>
+            <if test="jdbcUrl != null and jdbcUrl != ''">
+                jdbc_url = #{jdbcUrl},
+            </if>
+            <if test="username != null and username != ''">
+                username = #{username},
+            </if>
+            <if test="password != null and password != ''">
+                password = #{password},
+            </if>
+            <if test="dataBase != null and dataBase != ''">
+                data_base = #{dataBase},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+
+    <!--通过主键删除-->
+    <delete id="deleteById">
+        delete from tenant where id = #{id}
+    </delete>
+
+    <select id="getByName" resultType="com.dyq.springboot.mbsass.entity.Tenant">
+        select * from tenant where tenant_name = #{name}
+    </select>
+
+</mapper>
+

@@ -1,0 +1,30 @@
+= springboot利用swagger构建api文档
+
+
+[[_overview]]
+== Overview
+简单优雅的restfun风格
+
+
+=== Version information
+[%hardbreaks]
+__Version__ : 1.0
+
+
+=== License information
+[%hardbreaks]
+__Terms of service__ : http://www.baidu.com
+
+
+=== URI scheme
+[%hardbreaks]
+__Host__ : localhost:8080
+__BasePath__ : /
+
+
+=== Tags
+
+* PersonController : 人员控制
+
+
+
