@@ -16,8 +16,8 @@ minio:
 # 阿里云OSS
 aliyun:
   endpoint: oss-cn-beijing.aliyuncs.com
-  accessKeyId: LTAI4G8afiNLYsrjhoLxKUf4
-  accessKeySecret: 1frMDfVRGZjYkezalqF6lc7WT8alot
+  accessKeyId: xxx
+  accessKeySecret: xxx
   bucketName: test0371
   urlPrefix: https://test0371.oss-cn-beijing.aliyuncs.com
 
