@@ -1,0 +1,52 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/elastic-job-test
+    username: root
+    password: root
+    driver-class-name: com.mysql.jdbc.Driver
+
+# zookeeper注册中心
+zookeeper:
+  serverList: 192.168.2.110:2181
+  namespace: springboot-elastic-job-test
+
+#elastic job
+#simpleJob类型的job
+simpleJob:
+  mySimpleJob:
+    name: mySimpleJob
+    cron: 0/15 * * * * ?
+    shardingTotalCount: 3
+    shardingItemParameters: 0=a,1=b,2=c
+    jobParameters: helloWorld
+
+
+#script类型的job
+scriptJob:
+  myScriptJob:
+    name: myScriptJob
+    cron: 0/15 * * * * ?
+    shardingTotalCount: 3
+    shardingItemParameters: 0=a,1=b,2=c
+    jobParameters: myScriptJobParamter
+
+
+script-job-list:
+  jobs:
+    - cron: 0/5 * * * * ?
+      shardingTotalCount: 2
+      shardingItemParameters: 0=BJ,1=SH
+      jobDescription: "elastic script job2"
+      jobParameter: "elastic script job2"
+      jobName: "elastic script job2"
+      scriptCommandLine: "D:/WorkSpace/java/github/springboot-example/springboot-elastic-job/src/main/resources/job.bat"
+    - cron: 0/10 * * * * ?
+      shardingTotalCount: 2
+      shardingItemParameters: 0=BJ,1=SH
+      jobDescription: "elastic script job3"
+      jobParameter: "elastic script job3"
+      jobName: "elastic script job4"
+      scriptCommandLine: "D:/WorkSpace/java/github/springboot-example/springboot-elastic-job/src/main/resources/job.bat"

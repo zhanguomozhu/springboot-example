@@ -81,6 +81,8 @@
         <module>springboot-cors</module>
         <!--restemplate-->
         <module>springboot-restemplate</module>
+        <!--elastic-job-->
+        <module>springboot-elastic-job</module>
     </modules>
 
 </project>
